@@ -32,7 +32,7 @@ Este projeto tem como objetivo fornecer Front-End para visualizacão de alguns p
 ### Clone repositório
 
 ```bash
-$ git clone https://github.com/emersonAlexandre/
+$ git clone https://github.com/emersonAlexandre/ponto-mais-marvel.git
 ```
 
 ### Desenvolvimento local
