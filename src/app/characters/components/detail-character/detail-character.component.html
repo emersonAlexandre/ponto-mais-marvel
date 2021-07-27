@@ -1,0 +1,57 @@
+<div class="content-main">
+  <div class="d-flex flex-row align-items-center justify-content-center">
+    <div class="card">
+      <ng-container *ngIf="characterIsLoading; else elseBlockCharacter">
+        <div class="animated-background">
+          <img src="assets/images/portrait_incredible.jpg" alt="image">
+        </div>
+        <div class="container">
+          <h4><strong class="animated-background">Placeholder loading</strong></h4>
+          <div>
+            <h3><strong class="animated-background">Description:</strong></h3>
+            <p class="animated-background">Placeholder loading</p>
+          </div>
+          <div>
+            <h3><strong class="animated-background">Urls:</strong></h3>
+            <ul>
+              <li class="animated-background">Placeholder loading</li>
+              <li class="animated-background">Placeholder loading</li>
+              <li class="animated-background">Placeholder loading</li>
+            </ul>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #elseBlockCharacter>
+        <img [src]="character.image" [alt]="character.name">
+        <div class="container">
+          <h4><strong>{{character.name}}</strong></h4>
+          <div>
+            <h3><strong>Description:</strong></h3>
+            <p>{{character.description}}</p>
+          </div>
+          <div>
+            <h3><strong>Urls:</strong></h3>
+            <ul>
+              <ng-container *ngFor="let url of character.urls">
+                <li><a target="_blank" [href]="url.url">{{url.type}}</a></li>
+              </ng-container>
+            </ul>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="card-data">
+    <div class="tab">
+      <button [ngClass]="['tabLinks', currentTab === 'series' ? 'active' : '']"
+              (click)="currentTab = 'series'; getDataOfCurrentTab()">Séries</button>
+      <button [ngClass]="['tabLinks', currentTab === 'events' ? 'active' : '']"
+              (click)="currentTab = 'events'; getDataOfCurrentTab()">Eventos</button>
+    </div>
+
+    <app-data-table [config]="config" [data]="data" dataType="eventOrSerie" [columnsToDisplay]="columnsToDisplay"
+    [isLoading]="infoIsLoading"></app-data-table>
+    <app-pagination [config]="config" [isLoading]="infoIsLoading"></app-pagination>
+  </div>
+</div>

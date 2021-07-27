@@ -1,0 +1,72 @@
+@import '../../../../styles';
+
+.card {
+  margin: 20px 42px 28px 42px;
+
+  .card-title {
+    @extend .d-flex;
+    @extend .flex-row;
+    @extend .justify-content-between;
+    @extend .align-items-start;
+    margin-bottom: 34px;
+
+    .card-subtitle {
+      @extend .d-flex;
+      @extend .flex-column;
+      @extend .justify-content-between;
+      @extend .align-items-start;
+    }
+  }
+
+  .card-input-name {
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .justify-content-between;
+    @extend .align-items-start;
+    margin-bottom: 34px;
+
+    input {
+      @extend .w-100;
+      max-width: 400px;
+      height: 31px;
+      border-color: #CED4DA;
+      color: black;
+      border-radius: 5px;
+      margin-top: 2px;
+
+      &:focus-visible {
+        outline: 0;
+      }
+    }
+  }
+}
+
+strong {
+  font-family: Roboto-Black, sans-serif;
+}
+
+hr {
+  width: 54px;
+  height: 4px;
+  background-color: $default-color;
+  border: none;
+}
+
+@media (max-width: 695px) {
+  .card {
+    margin: 12px 0 36px 0;
+    min-width: 310px;
+
+    .card-title {
+      margin: 0 30px 12px 30px;
+
+      &> h1:last-child {
+        display: none;
+      }
+    }
+
+    .card-input-name {
+      margin: 0 30px 12px 30px;
+    }
+  }
+}

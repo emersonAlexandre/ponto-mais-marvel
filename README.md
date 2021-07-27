@@ -1,27 +1,71 @@
-# PontoMaisMarvel
+# ponto-mais-marvel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
+![Angular Logo](https://www.vectorlogo.zone/logos/angular/angular-icon.svg)
+![Typescript Logo](https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg)
 
-## Development server
+## Sumário
+- [Sumário](#sumário)
+- [Introdução](#introdução)
+- [Configurações | Build | Deploy](#configurações--build--deploy)
+  - [Pre Requisitos](#pre-requisitos)
+  - [Clone repositório](#clone-repositório)
+  - [Desenvolvimento local](#desenvolvimento-local)
+  - [Iniciar a aplicação local](#iniciar-a-aplicação-local)
+  - [Deploy](#deploy)
+  - [Iniciar a aplicação em produção](#iniciar-a-aplicação-em-produção)
+  - [Parar a aplicação em produção](#parar-a-aplicação-em-produção)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Introdução
 
-## Code scaffolding
+Este projeto tem como objetivo fornecer Front-End para visualizacão de alguns personagens da marvel e algumas de suas informações.
+- Visualização de personagens;
+- Visualizacão de detalhes de um personagem.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Configurações | Build | Deploy
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Pre Requisitos
 
-## Running unit tests
+- [NodeJS LTS](https://nodejs.org/en/)
+- [Angular](https://angular.io/guide/setup-local)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Clone repositório
 
-## Running end-to-end tests
+```bash
+$ git clone https://github.com/emersonAlexandre/
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Desenvolvimento local
 
-## Further help
+Após clonar o repositório, executar os seguinte comando na pasta raiz do projeto:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+$ npm install # instalar dependencias do projeto
+```
+
+### Iniciar a aplicação local
+Executar o seguinte comando na pasta raiz do projeto:
+
+```bash
+$ ng serve # iniciar aplicacao local (porta 4200)
+```
+
+### Deploy
+
+Links das ferramentas:
+
+- [Docker](https://www.docker.com/get-started)
+- [Docker-compose](https://docs.docker.com/compose/)
+
+### Iniciar a aplicação em produção
+Executar o seguinte comando na pasta raiz do projeto:
+
+```bash
+$ docker-compose up # iniciar aplicacao (porta 80)
+```
+### Parar a aplicação em produção
+Abra o terminal onde iniciou a aplicação e segure as teclas (Ctrl+c) ou execute o seguinte comando na pasta raiz do projeto:
+
+```bash
+$ docker-compose down # parar aplicacao
+```

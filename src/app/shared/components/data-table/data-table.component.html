@@ -1,0 +1,45 @@
+<table>
+  <tr>
+    <th *ngFor="let columnToDisplay of columnsToDisplay" [ngStyle]="{'min-width': columnToDisplay.minWidth}">
+      {{columnToDisplay.label}}
+    </th>
+  </tr>
+  <ng-container *ngIf="isLoading; else elseBlock">
+    <tr *ngFor="let i of arrayMock() | paginate: config" [ngStyle]="{'min-width': getMinWidthTr()}">
+      <td *ngFor="let columnToDisplay of columnsToDisplay" [ngStyle]="{'min-width': columnToDisplay.minWidth}">
+        <ng-container *ngIf="columnToDisplay.name === 'name'">
+          <div class="animated-background">
+            <img src="assets/images/portrait_incredible.jpg" alt="image" height="58" width="58">
+          </div>
+          <p class="animated-background">Placeholder loading</p>
+        </ng-container>
+
+        <ng-container *ngIf="columnToDisplay.name !== 'name'">
+          <p class="animated-background">Placeholder loading</p>
+        </ng-container>
+      </td>
+    </tr>
+  </ng-container>
+
+  <ng-template #elseBlock>
+    <tr *ngFor="let item of data | paginate: config" [ngStyle]="{'min-width': getMinWidthTr()}"
+        (click)="dataType === 'character' ? goToCharacterDetail(item.id) : ''">
+      <td *ngFor="let columnToDisplay of columnsToDisplay" [ngStyle]="{'min-width': columnToDisplay.minWidth}">
+        <ng-container *ngIf="columnToDisplay.name === 'name'">
+          <img [src]="item.image" [alt]="dataType === 'character' ? item.name : item.title" height="58" width="58" >
+          <p>{{dataType === 'character' ? item.name : item.title}}</p>
+        </ng-container>
+
+        <ng-container *ngIf="isArray(item[columnToDisplay.name])">
+          <ng-container *ngFor="let subItem of item[columnToDisplay.name]">
+            <p>{{subItem.name}}</p>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="!isArray(item[columnToDisplay.name]) && columnToDisplay.name !== 'name'">
+          <p>{{getTextAnalyzed(item[columnToDisplay.name])}}</p>
+        </ng-container>
+      </td>
+    </tr>
+  </ng-template>
+</table>

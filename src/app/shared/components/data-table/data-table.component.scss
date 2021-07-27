@@ -1,0 +1,113 @@
+@import '../../../../styles';
+
+table {
+  @extend .w-100;
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .justify-content-center;
+  @extend .align-items-start;
+  margin-bottom: 16px;
+}
+
+tr {
+  @extend .w-100;
+  @extend .d-flex;
+  @extend .flex-row;
+  @extend .justify-content-between;
+  @extend .align-items-center;
+
+  &:not(:first-child) {
+    border-bottom: 1px solid rgba(212, 32, 38, 0.1);
+    height: 112px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(212, 32, 38, 0.1);
+    }
+  }
+}
+
+th {
+  @extend .w-25;
+  @extend .d-flex;
+  @extend .flex-row;
+  @extend .align-items-center;
+  @extend .justify-content-start;
+  margin-right: 10px;
+  background-color: $default-color;
+  color: white;
+  height: 37px;
+  padding-left: 18px;
+
+  &:last-child {
+    @extend .w-50;
+    margin-right: 0;
+  }
+}
+
+td {
+  @extend .w-25;
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .align-items-start;
+  @extend .justify-content-start;
+  margin-right: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+
+  p {
+    color: black;
+  }
+
+  &:last-child {
+    @extend .w-50;
+    margin-right: 0;
+  }
+
+  &:first-child {
+    @extend .flex-row;
+    @extend .align-items-center;
+
+    img, div.animated-background {
+      border-radius: 50%;
+      margin-right: 25px;
+    }
+  }
+}
+
+div.animated-background {
+  height: 58px;
+  width: 58px;
+
+  img {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 695px) {
+  table {
+    margin-bottom: 24px;
+  }
+
+  tr {
+    min-width: unset !important;
+  }
+
+  th {
+    width: 100%;
+    margin-right: 0;
+
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+
+  td {
+    width: 100%;
+    margin-right: 0;
+
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+}

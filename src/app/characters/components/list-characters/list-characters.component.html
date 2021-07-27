@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-title">
+    <div class="card-subtitle">
+      <h1><strong>BUSCA MARVEL</strong>TESTE FRONT-END</h1>
+      <hr>
+    </div>
+    <h1>EMERSON DAVI</h1>
+  </div>
+  <ng-container *ngIf="isLoading; else elseBlock">
+    <div class="card-input-name">
+      <label class="animated-background" for="placeholder">Placeholder loading</label>
+      <input class="animated-background" type="text" id="placeholder"/>
+    </div>
+    <app-data-table [config]="config" [data]="characters" dataType="character" [columnsToDisplay]="columnsToDisplay"
+                    [isLoading]="isLoading"></app-data-table>
+    <app-pagination [config]="config" [isLoading]="isLoading"></app-pagination>
+  </ng-container>
+  <ng-template #elseBlock>
+    <div class="card-input-name">
+      <label for="findByName">Nome do Personagem</label>
+      <input type="text" id="findByName" (keyup)="filteredCharactersByChar($event)"/>
+    </div>
+    <app-data-table [config]="config" [data]="characters" dataType="character" [columnsToDisplay]="columnsToDisplay"
+    [isLoading]="isLoading"></app-data-table>
+    <app-pagination [config]="config" [isLoading]="isLoading"></app-pagination>
+  </ng-template>
+</div>
